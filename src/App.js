@@ -1,34 +1,35 @@
 // 导入路由
-import { useRoutes } from 'react-router-dom'
+import { useRoutes } from "react-router-dom";
 
 // 导入页面组件
-import Login from './pages/Login'
-import Layout from './pages/Layout'
-import NotFound from './pages/NotFound'
+import Login from "./pages/Login";
+import Layout from "./pages/Layout";
+import NotFound from "./pages/NotFound";
+import Home from "./pages/home";
 
 const routes = [
-  {
-    path: '/',
-    element: <Layout />,
-  },
-  {
-    path: '/login',
-    element: <Login />,
-  },
-  {
-    path: '*',
-    element: <NotFound />,
-  },
-]
+	{
+		path: "/layout",
+		element: <Layout />,
+	},
+	{
+		path: "/",
+		element: <Login />,
+	},
+	{
+		path: "*",
+		element: <NotFound />,
+	},
+	{
+		path: "/home",
+		element: <Home />,
+	},
+];
 
 // 配置路由规则
 function App() {
-  const element = useRoutes(routes)
-  return (
-      <div className="App">
-				{element}
-      </div>
-  )
+	const element = useRoutes(routes);
+	return <div className="App">{element}</div>;
 }
 
-export default App
+export default App;

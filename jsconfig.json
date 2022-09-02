@@ -1,0 +1,7 @@
+//配置绝对路径
+{
+    "compilerOptions": {
+        "baseUrl": "src"
+    },
+    "include": ["src"]
+}
