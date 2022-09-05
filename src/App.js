@@ -1,30 +1,6 @@
 // 导入路由
 import { useRoutes } from "react-router-dom";
-
-// 导入页面组件
-import Login from "./pages/Login";
-import Layout from "./pages/Layout";
-import NotFound from "./pages/NotFound";
-import Home from "./pages/home";
-
-const routes = [
-	{
-		path: "/layout",
-		element: <Layout />,
-	},
-	{
-		path: "/",
-		element: <Login />,
-	},
-	{
-		path: "*",
-		element: <NotFound />,
-	},
-	{
-		path: "/home",
-		element: <Home />,
-	},
-];
+import routes from "./router";
 
 // 配置路由规则
 function App() {

@@ -1,4 +1,5 @@
 import http from "utils/http";
+import { getToken } from "utils/storage";
 
 /**
  *登录请求，用于用户登录
@@ -13,6 +14,16 @@ export const login = (mobile, code) => {
 		data: {
 			mobile,
 			code,
+		},
+	});
+};
+
+export const userInfo = () => {
+	return http({
+		method: "GET",
+		url: "/user/profile",
+		headers: {
+			Authorization: `Bearer ${getToken()}`,
 		},
 	});
 };

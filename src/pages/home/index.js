@@ -1,13 +1,7 @@
-import React, { Component } from "react";
-import { Button, DatePicker } from "antd";
+import './index.scss'
 
-export default class Layout extends Component {
-	render() {
-		return (
-			<div>
-				home
-				<Button type="primary">Button</Button> <DatePicker />
-			</div>
-		);
-	}
+const Home = () => {
+  return <div className="home" />
 }
+
+export default Home

@@ -1,0 +1,46 @@
+.layout{
+	height: 100vh;
+	position: relative;
+	:global{
+		.ant-layout{
+			height: 100%;
+		}
+		.logo {
+			float: left;
+			width: 200px;
+			height: 60px;
+			background: url(~assets/logo.png);
+			background-size: cover;
+			margin: 2px 0;
+		}
+
+		.profile{
+			float: right;
+			color: #fff;
+			span + span{
+				margin-left: 10px;
+				color: #fff !important;
+				cursor: pointer;
+			}
+		}
+
+		
+		#components-layout-demo-top-side .logo {
+			float: left;
+			width: 120px;
+			height: 31px;
+			margin: 16px 24px 16px 0;
+			background: rgba(255, 255, 255, 0.3);
+		  }
+		  
+		  .ant-row-rtl #components-layout-demo-top-side .logo {
+			float: right;
+			margin: 16px 0 16px 24px;
+		  }
+		  
+		  .site-layout-background {
+			background: #fff;
+		  }
+		
+	}
+}

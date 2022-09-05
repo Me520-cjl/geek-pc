@@ -1,20 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import { Card, Button, Checkbox, Form, Input, message } from "antd";
 import "./index.scss";
 import logo from "assets/logo.png";
 import { login } from "api/user";
 import { useNavigate } from "react-router-dom";
+import { setToken } from "../../utils/storage";
 
 const Login = () => {
+	const [loading, setLoading] = useState(false);
 	const history = useNavigate();
 	const onFinish = async (values) => {
 		const { code, mobile } = values;
 		try {
+			setLoading(true);
 			const res = await login(mobile, code);
-			history("/home");
-			localStorage.setItem("itcast_geek_pc", res.data.token);
+			history("/layout");
+			setToken(res.data.token);
 			message.success("登录成功");
 		} catch (err) {
+			setLoading(false);
 			message.error(err.response.data.message);
 		}
 	};
@@ -79,6 +83,7 @@ const Login = () => {
 							htmlType="submit"
 							size="large"
 							block
+							loading={loading}
 						>
 							登录
 						</Button>

@@ -1,4 +1,6 @@
 import axios from "axios";
+import { removeToken } from "./storage";
+import { history as customHistory } from "router/history";
 
 //创建axios实例
 const http = axios.create({
@@ -25,6 +27,16 @@ http.interceptors.response.use(
 		return response.data;
 	},
 	function (error) {
+		if (error.response.status === 401) {
+			removeToken();
+			//方式一：页面会刷新
+			//window.location.href='/login'
+			//方式二
+			// 跳转到登录页，并携带当前要访问的页面，这样，登录后可以继续返回该页面
+			customHistory.push("/login", {
+				from: customHistory.location.pathname,
+			});
+		}
 		// 对响应错误做点什么
 		return Promise.reject(error);
 	}
