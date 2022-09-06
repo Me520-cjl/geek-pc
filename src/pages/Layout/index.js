@@ -85,6 +85,7 @@ export default function Index() {
 				<Layout
 					style={{
 						padding: "24px",
+						overflow: "auto",
 					}}
 				>
 					<Content className="site-layout-background">
