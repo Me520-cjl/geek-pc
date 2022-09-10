@@ -32,7 +32,7 @@ export const getArticle = (data) => {
 };
 
 /**
- *获取文章列表
+ *删除文章
  * @param
  * @param
  * @returns

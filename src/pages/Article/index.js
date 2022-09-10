@@ -23,7 +23,7 @@ import {
 import img404 from "assets/error.png";
 import React, { useEffect, useState } from "react";
 import { getChannel, getArticle, delArticle } from "api/article";
-//import Item from "antd/lib/list/Item";
+//import Channel from "component/Channel";
 
 const { Option } = Select;
 const { RangePicker } = DatePicker;
@@ -58,6 +58,7 @@ export default function Article() {
 	};
 	//筛选功能
 	const onFinish = (values) => {
+		console.log(values);
 		const { status, channel_id, date } = values;
 		// 将表单中选中数据，组装成接口需要的数据格式，然后，传递给接口
 		const params = { channel_id };
@@ -226,7 +227,7 @@ export default function Article() {
 					<Form.Item label="频道" name="channel_id">
 						<Select
 							placeholder="请选择文章频道"
-							style={{ width: 120 }}
+							style={{ width: 150 }}
 						>
 							{channels.map((item) => (
 								<Option key={item.id} value={item.id}>
@@ -234,6 +235,7 @@ export default function Article() {
 								</Option>
 							))}
 						</Select>
+						{/* <Channel></Channel> */}
 					</Form.Item>
 
 					<Form.Item label="日期" name="date">
